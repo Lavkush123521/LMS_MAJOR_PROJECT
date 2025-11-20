@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Page</title>
+  <link rel="stylesheet" href="style2.css" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="product-page">
+      <!-- Product Image Section -->
+      <div class="image-section">
+        <img src="https://via.placeholder.com/400" alt="Product Image" class="main-image">
+      </div>
+
+      <!-- Product Info Section -->
+      <div class="info-section">
+        <h1>Wireless Bluetooth Headphones</h1>
+        <p class="price">$99.99</p>
+        <p class="description">Premium wireless headphones with noise cancellation and 20-hour battery life.</p>
+
+        <label for="color">Color:</label>
+        <select id="color">
+          <option value="black">Black</option>
+          <option value="white">White</option>
+          <option value="blue">Blue</option>
+        </select>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" value="1" min="1">
+
+        <button class="btn add-to-cart">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  let cartCount = 0;
+
+  document.querySelector(".add-to-cart").addEventListener("click", function () {
+    const color = document.getElementById("color").value;
+    const quantity = parseInt(document.getElementById("quantity").value);
+
+    if (quantity < 1) {
+      alert("Please enter a valid quantity.");
+      return;
+    }
+
+    cartCount += quantity;
+
+    // Update cart UI
+    document.getElementById("cart-count").innerText = cartCount;
+
+    alert(`Added ${quantity} item(s) of color "${color}" to your cart!`);
+  });
+</script>
+
+
+</body>
+</html>
